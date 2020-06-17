@@ -52,6 +52,7 @@ $(document).ready(function(){
     })
     
     function handleTemplate(disco) {
+
         var context = {
             'image': disco.poster,
             'title' : disco.title,
