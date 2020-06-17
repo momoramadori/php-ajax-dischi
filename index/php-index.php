@@ -11,12 +11,14 @@
 </head>
 <body>
 <header>
-    <div class="img-wrapper">
-        <img src="../public/img/logo.svg" alt="">
+    <div class="container">
+        <div class="img-wrapper">
+            <img src="../public/img/logo.svg" alt="">
+        </div>
+        <form action="">
+            <select></select>
+        </form>
     </div>
-    <form action="">
-        <select></select>
-    </form>
 </header>
     <main>
         <div class="container">

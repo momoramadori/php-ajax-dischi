@@ -6,14 +6,20 @@
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   height: 100px;
   background-color: #191F38;
 }
 
-header .img-wrapper img {
+header .container {
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .container .img-wrapper img {
   max-width: 150px;
   -o-object-fit: contain;
      object-fit: contain;

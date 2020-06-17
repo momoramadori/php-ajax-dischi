@@ -8,17 +8,25 @@
     font-family: 'MuseoModerno', cursive;
 }
 header {
-    @include my-flex(center,space-around);
     height: 100px;
     background-color: $sfondo_header;
 
-    .img-wrapper {
+    .container {
+        height: 100%;
+        width: $container_width;
+        margin: auto;
+        @include my-flex(center, space-between);
 
-        img {
-            max-width: 150px;
-            object-fit: contain;
+        .img-wrapper {
+
+            img {
+                max-width: 150px;
+                object-fit: contain;
+            }
         }
     }
+
+    
 }
 
 main {
@@ -27,7 +35,7 @@ main {
     overflow-y: auto;
 
     .container {
-        width: 80%;
+        width: $container_width;
         margin: auto;
         @include my-flex(center, center);
         flex-wrap: wrap;
