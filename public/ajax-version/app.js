@@ -16102,15 +16102,7 @@ $(document).ready(function () {
 
       for (var index = 0; index < dataParsed.length; index++) {
         var disco = dataParsed[index];
-        var context = {
-          'image': disco.poster,
-          'title': disco.title,
-          'author': disco.author,
-          'genre': disco.genre,
-          'year': disco.year
-        };
-        var html = template(context);
-        $('main .container').append(html); //popolo la select
+        handleTemplate(disco); //popolo la select
 
         if ($('option').val() != disco.author) {
           $('select').append('<option val ="' + disco.author + '">' + disco.author + '</option>');
@@ -16134,15 +16126,7 @@ $(document).ready(function () {
           var disco = dataParsed[index];
 
           if ($('select').val() == disco.author || $('select').val() == 'none') {
-            var context = {
-              'image': disco.poster,
-              'title': disco.title,
-              'author': disco.author,
-              'genre': disco.genre,
-              'year': disco.year
-            };
-            var html = template(context);
-            $('main .container').append(html);
+            handleTemplate(disco);
           }
         }
       },
@@ -16151,6 +16135,18 @@ $(document).ready(function () {
       }
     });
   });
+
+  function handleTemplate(disco) {
+    var context = {
+      'image': disco.poster,
+      'title': disco.title,
+      'author': disco.author,
+      'genre': disco.genre,
+      'year': disco.year
+    };
+    var html = template(context);
+    $('main .container').append(html);
+  }
 });
 
 /***/ }),

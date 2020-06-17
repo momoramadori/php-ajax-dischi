@@ -1,0 +1,19 @@
+header {
+    height: 100px;
+    background-color: $sfondo_header;
+
+    .container {
+        height: 100%;
+        width: $container_width;
+        margin: auto;
+        @include my-flex(center, space-between);
+
+        .img-wrapper {
+
+            img {
+                max-width: 150px;
+                object-fit: contain;
+            }
+        }
+    }
+}
