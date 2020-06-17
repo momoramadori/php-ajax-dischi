@@ -43,7 +43,7 @@ main .container {
 .card {
   background-color: #3F4F8D;
   max-width: 250px;
-  max-height: 380px;
+  max-height: 400px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -63,5 +63,6 @@ main .container {
 .card .info {
   padding: 0 10px 20px 10px;
   text-align: center;
+  margin-bottom: 20px;
 }
 

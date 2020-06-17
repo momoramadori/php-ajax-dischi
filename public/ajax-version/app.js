@@ -16110,12 +16110,46 @@ $(document).ready(function () {
           'year': disco.year
         };
         var html = template(context);
-        $('main .container').append(html);
+        $('main .container').append(html); //popolo la select
+
+        if ($('option').val() != disco.author) {
+          $('select').append('<option val ="' + disco.author + '">' + disco.author + '</option>');
+        }
       }
     },
     'error': function error() {
       console.log('errore');
     }
+  }); //BONUS: aggiungere una select con i nomi degli artisti che fungerà da filtro: quando viene selezionato un artista, recuperare gli album appropriati tramite una chiamata ajax
+
+  $('select').change(function () {
+    $.ajax({
+      'url': 'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/public/database/dischiajax.php',
+      'method': 'GET',
+      'success': function success(data) {
+        $('main .container').empty();
+        var dataParsed = JSON.parse(data);
+
+        for (var index = 0; index < dataParsed.length; index++) {
+          var disco = dataParsed[index];
+
+          if ($('select').val() == disco.author || $('select').val() == 'none') {
+            var context = {
+              'image': disco.poster,
+              'title': disco.title,
+              'author': disco.author,
+              'genre': disco.genre,
+              'year': disco.year
+            };
+            var html = template(context);
+            $('main .container').append(html);
+          }
+        }
+      },
+      'error': function error() {
+        console.log('errore');
+      }
+    });
   });
 });
 

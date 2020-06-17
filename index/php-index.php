@@ -15,9 +15,6 @@
         <div class="img-wrapper">
             <img src="../public/img/logo.svg" alt="">
         </div>
-        <form action="">
-            <select></select>
-        </form>
     </div>
 </header>
     <main>

@@ -13,8 +13,10 @@
         <div class="img-wrapper">
             <img src="../public/img/logo.svg" alt="">
         </div>
-        <form action="">
-            <select></select>
+        <form>
+            <select>
+                <option value="none">--Scegli un artista--</option>
+            </select>
         </form>
     </div>
 </header>
