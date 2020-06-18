@@ -14,7 +14,7 @@
             <img src="../public/img/logo.svg" alt="">
         </div>
         <form>
-            <select>
+            <select name='data'>
                 <option value="none">--Scegli un artista--</option>
             </select>
         </form>
