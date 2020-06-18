@@ -16115,27 +16115,29 @@ $(document).ready(function () {
       console.log('errore');
     }
   }); //BONUS: aggiungere una select con i nomi degli artisti che fungerà da filtro: quando viene selezionato un artista, recuperare gli album appropriati tramite una chiamata ajax
-  // $('select').change(function(){
-  //     $.ajax({
-  //         'url': url,
-  //         'method':'GET',
-  //         'success': function(data) {
-  //             //svuoto il contenitore dai preceedenti dischi
-  //             $('main .container').empty();
-  //             var dataParsed = JSON.parse(data);
-  //             for (let index = 0; index < dataParsed.length; index++) {
-  //                 var disco = dataParsed[index];
-  //                 // mostro solo i dischi dell'artista scelto nella select
-  //                 if ($('select').val() == disco.author || $('select').val() == 'none') {
-  //                     handleTemplate(disco);
-  //                 }
-  //             }
-  //         },
-  //         'error': function() {
-  //             console.log('errore');
-  //         }
-  //     })
-  // })
+
+  $('select').change(function () {
+    $.ajax({
+      'url': url,
+      'method': 'GET',
+      'success': function success(data) {
+        //svuoto il contenitore dai preceedenti dischi
+        $('main .container').empty();
+        var dataParsed = JSON.parse(data);
+
+        for (var index = 0; index < dataParsed.length; index++) {
+          var disco = dataParsed[index]; // mostro solo i dischi dell'artista scelto nella select
+
+          if ($('select').val() == disco.author || $('select').val() == 'none') {
+            handleTemplate(disco);
+          }
+        }
+      },
+      'error': function error() {
+        console.log('errore');
+      }
+    });
+  });
 
   function handleTemplate(disco) {
     var context = {
@@ -16147,23 +16149,21 @@ $(document).ready(function () {
     };
     var html = template(context);
     $('main .container').append(html);
-  }
+  } // $('select').change(function(){
+  //     $.ajax({
+  //         'url': url,
+  //         'method':'POST',
+  //         'data': {'author' : $(this).val()},
+  //         'dataType':'json',
+  //         'success': function(data) {
+  //             console.log(data);
+  //         },
+  //         'error': function() {
+  //             console.log('errore');
+  //         }
+  //     })
+  // })
 
-  $('select').change(function () {
-    $.ajax({
-      'url': url,
-      'method': 'POST',
-      'data': {
-        'author': $(this).val()
-      },
-      'success': function success(data) {
-        console.log(data);
-      },
-      'error': function error() {
-        console.log('errore');
-      }
-    });
-  });
 });
 
 /***/ }),

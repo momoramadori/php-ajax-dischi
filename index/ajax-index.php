@@ -14,14 +14,14 @@
             <img src="../public/img/logo.svg" alt="">
         </div>
         <form>
-            <select name='data'>
+            <select>
                 <option value="none">--Scegli un artista--</option>
             </select>
         </form>
     </div>
 </header>
     <main>
-        <div class="container">
+        <div class="container">       
         </div>
     </main>
     <script src="../public/ajax-version/app.js"></script>
