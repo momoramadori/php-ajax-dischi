@@ -16092,16 +16092,18 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
+  var url = 'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/public/database/dischiajax.php';
   var source = $("#entry-template").html();
   var template = Handlebars.compile(source);
   $.ajax({
-    'url': 'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/public/database/dischiajax.php',
+    'url': url,
     'method': 'GET',
     'success': function success(data) {
-      var dataParsed = JSON.parse(data);
+      var dataParsed = JSON.parse(data); //ciclo i dati per generare tutti i dischi
 
       for (var index = 0; index < dataParsed.length; index++) {
-        var disco = dataParsed[index];
+        var disco = dataParsed[index]; //con handlebar genero le card
+
         handleTemplate(disco); //popolo la select
 
         if ($('option').val() != disco.author) {
@@ -16116,14 +16118,15 @@ $(document).ready(function () {
 
   $('select').change(function () {
     $.ajax({
-      'url': 'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/public/database/dischiajax.php',
+      'url': url,
       'method': 'GET',
       'success': function success(data) {
+        //svuoto il contenitore dai preceedenti dischi
         $('main .container').empty();
         var dataParsed = JSON.parse(data);
 
         for (var index = 0; index < dataParsed.length; index++) {
-          var disco = dataParsed[index];
+          var disco = dataParsed[index]; // mostro solo i dischi dell'artista scelto nella select
 
           if ($('select').val() == disco.author || $('select').val() == 'none') {
             handleTemplate(disco);

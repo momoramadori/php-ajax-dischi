@@ -1,4 +1,12 @@
-<?php include '../public/database/dischi.php' ?>
+<?php include '../public/database/dischi.php';
+
+$authors = [];
+foreach ($dischi as  $disco) {
+    if (!in_array( $disco['author'], $authors)) {
+        array_push($authors, $disco['author']);
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +23,17 @@
         <div class="img-wrapper">
             <img src="../public/img/logo.svg" alt="">
         </div>
+        <form>
+            <select>
+                <option value="none">--Scegli un artista--</option>
+                <?php for ($i=0; $i < count($authors); $i++) { 
+                    $author = $authors[$i]; ?>
+                    <option value="<?php echo $author ?>"><?php echo $author ?></option>
+                    <?php
+                } 
+                ?>
+            </select>
+        </form>
     </div>
 </header>
     <main>
@@ -24,7 +43,7 @@
                     <div><img src="<?php echo $value['poster'] ?>" alt=""></div>
                     <div class='info'>
                         <h3><?php echo $value['title'] ?> </h3>
-                        <p><?php echo $value['author'] ?></p>
+                        <p class='author' data='<?php echo $value['author'] ?>'><?php echo $value['author'] ?></p>
                         <p><?php echo $value['genre'] ?></p>
                         <p><?php echo $value['year'] ?></p>
                     </div>

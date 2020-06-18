@@ -48,7 +48,7 @@ main .container {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  margin: 20px;
+  margin: 10px;
   border-radius: 10px;
   border: 1px solid #B9C0DF;
   color: #B9C0DF;
