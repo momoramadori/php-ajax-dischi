@@ -1,5 +1,6 @@
-<?php include '../public/database/dischi.php';
+<?php include '../src/php-version/elaborazione-php.php';
 
+//creo l'array per la select
 $authors = [];
 foreach ($dischi as  $disco) {
     if (!in_array( $disco['author'], $authors)) {

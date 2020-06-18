@@ -26,22 +26,9 @@ $(document).ready(function(){
         }
     })
     
-    function handleTemplate(disco) {
-
-        var context = {
-            'image': disco.poster,
-            'title' : disco.title,
-            'author' : disco.author,
-            'genre' : disco.genre,
-            'year' : disco.year
-        }
-        var html = template(context);
-        $('main .container').append(html);
-    }
-
     $('select').change(function(){
         $.ajax({
-            'url':'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/src/ajax-version/elaborazione-ajax.php' ,
+            'url': url,
             'method':'GET',
             'data': {'author' : $(this).val()},
             'dataType':'json',
@@ -58,5 +45,18 @@ $(document).ready(function(){
             }
         })
     })
+
+    function handleTemplate(disco) {
+
+        var context = {
+            'image': disco.poster,
+            'title' : disco.title,
+            'author' : disco.author,
+            'genre' : disco.genre,
+            'year' : disco.year
+        }
+        var html = template(context);
+        $('main .container').append(html);
+    }
 });
 
