@@ -73,5 +73,23 @@ $dischi = [
     ]
 ];
 
+if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
+{
+    if (isset($_GET['author'])) {
+        $dischi_filtrati = [];
+        foreach ($dischi as $key => $value) {
+            if ($value['author'] == $_GET['author']) {
+                array_push($dischi_filtrati, $value);
+            }
+        }
+        if ($dischi_filtrati != []) {
+            $dischi = $dischi_filtrati;
+        }
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($dischi);
+}
+
 ?>
 

@@ -7,7 +7,7 @@ $(document).ready(function(){
     var template = Handlebars.compile(source);
 
     $.ajax({
-        'url': url,
+        'url': '../database/dischi.php',
         'method':'GET',
         'dataType': 'json',
         'success': function(data) {
@@ -29,7 +29,7 @@ $(document).ready(function(){
     
     $('select').change(function(){
         $.ajax({
-            'url': url,
+            'url': '../database/dischi.php',
             'method':'GET',
             'data': {'author' : $(this).val()},
             'dataType':'json',

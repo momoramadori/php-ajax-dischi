@@ -1,4 +1,4 @@
-<?php include '../src/php-version/elaborazione-php.php';
+<?php include '../database/dischi.php';
 
 //creo l'array per la select
 $authors = [];
