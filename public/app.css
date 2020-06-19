@@ -6,13 +6,13 @@
 }
 
 header {
-  height: 100px;
+  height: 60px;
   background-color: #191F38;
 }
 
 header .container {
   height: 100%;
-  width: 80%;
+  width: 75%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -26,13 +26,15 @@ header .container .img-wrapper img {
 }
 
 main {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 60px);
   background-color: #29335C;
   overflow-y: auto;
 }
 
 main .container {
-  width: 80%;
+  padding: 5px;
+  width: 75%;
+  height: 100%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -43,7 +45,7 @@ main .container {
 .card {
   background-color: #3F4F8D;
   max-width: 250px;
-  max-height: 400px;
+  max-height: 395px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -63,6 +65,10 @@ main .container {
 .card .info {
   padding: 0 10px 20px 10px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: white;
 }
 

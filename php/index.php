@@ -46,7 +46,7 @@ foreach ($dischi as  $disco) {
                         <h3><?php echo $value['title'] ?> </h3>
                         <p class='author' data='<?php echo $value['author'] ?>'><?php echo $value['author'] ?></p>
                         <p><?php echo $value['genre'] ?></p>
-                        <p><?php echo $value['year'] ?></p>
+                        <small><?php echo $value['year'] ?></small>
                     </div>
                 </div>
                 <?php
@@ -62,7 +62,7 @@ foreach ($dischi as  $disco) {
                 <h3>{{title}}</h3>
                 <p>{{author}}</p>
                 <p>{{genre}}</p>
-                <p>{{year}}</p>
+                <small>{{year}}</small>
             </div>
         </div>
     </script>

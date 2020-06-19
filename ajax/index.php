@@ -32,7 +32,7 @@
                 <h3>{{title}}</h3>
                 <p>{{author}}</p>
                 <p>{{genre}}</p>
-                <p>{{year}}</p>
+                <small>{{year}}</small>
             </div>
         </div>
     </script>
