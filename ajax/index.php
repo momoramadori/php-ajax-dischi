@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="../public/app.css">
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
 <body>
 <header>

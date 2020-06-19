@@ -1,4 +1,5 @@
 var $ = require('jquery');
+const Handlebars = require("handlebars");
 
 $(document).ready(function(){
     const url = 'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/src/ajax-version/elaborazione-ajax.php'
