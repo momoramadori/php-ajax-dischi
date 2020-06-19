@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -16080,10 +16080,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./src/ajax-version/app.js":
-/*!*********************************!*\
-  !*** ./src/ajax-version/app.js ***!
-  \*********************************/
+/***/ "./src/js/app.js":
+/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16092,29 +16092,32 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  var url = 'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/src/ajax-version/elaborazione-ajax.php';
   var source = $("#entry-template").html();
   var template = Handlebars.compile(source);
-  $.ajax({
-    'url': '../database/dischi.php',
-    'method': 'GET',
-    'dataType': 'json',
-    'success': function success(data) {
-      //ciclo i dati per generare tutti i dischi
-      for (var index = 0; index < data.length; index++) {
-        var disco = data[index]; //con handlebar genero le card
 
-        handleTemplate(disco); //popolo la select
+  if ($('main').hasClass('handlebars-compile')) {
+    $.ajax({
+      'url': '../database/dischi.php',
+      'method': 'GET',
+      'dataType': 'json',
+      'success': function success(data) {
+        //ciclo i dati per generare tutti i dischi
+        for (var index = 0; index < data.length; index++) {
+          var disco = data[index]; //con handlebar genero le card
 
-        if ($('option').val() != disco.author) {
-          $('select').append('<option val ="' + disco.author + '">' + disco.author + '</option>');
+          handleTemplate(disco); //popolo la select
+
+          if ($('option').val() != disco.author) {
+            $('select').append('<option val ="' + disco.author + '">' + disco.author + '</option>');
+          }
         }
+      },
+      'error': function error() {
+        console.log('errore');
       }
-    },
-    'error': function error() {
-      console.log('errore');
-    }
-  });
+    });
+  }
+
   $('select').change(function () {
     $.ajax({
       'url': '../database/dischi.php',
@@ -16153,14 +16156,26 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 1:
-/*!***************************************!*\
-  !*** multi ./src/ajax-version/app.js ***!
-  \***************************************/
+/***/ "./src/scss/app.scss":
+/*!***************************!*\
+  !*** ./src/scss/app.scss ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!*************************************************!*\
+  !*** multi ./src/js/app.js ./src/scss/app.scss ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/src/ajax-version/app.js */"./src/ajax-version/app.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/src/js/app.js */"./src/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/src/scss/app.scss */"./src/scss/app.scss");
 
 
 /***/ })

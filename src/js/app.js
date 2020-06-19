@@ -2,30 +2,32 @@ var $ = require('jquery');
 const Handlebars = require("handlebars");
 
 $(document).ready(function(){
-    const url = 'http://localhost:8888/Boolean/php-exercises/Giugno/17-06/php-ajax-dischi/src/ajax-version/elaborazione-ajax.php'
     var source   = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
-    $.ajax({
-        'url': '../database/dischi.php',
-        'method':'GET',
-        'dataType': 'json',
-        'success': function(data) {
-            //ciclo i dati per generare tutti i dischi
-            for (let index = 0; index < data.length; index++) {
-                var disco = data[index];
-                //con handlebar genero le card
-                handleTemplate(disco);
-                //popolo la select
-                if ($('option').val() != disco.author) {
-                    $('select').append('<option val ="'+ disco.author +'">' + disco.author + '</option>');
+    if ($('main').hasClass('handlebars-compile')) {
+        $.ajax({
+            'url': '../database/dischi.php',
+            'method':'GET',
+            'dataType': 'json',
+            'success': function(data) {
+                //ciclo i dati per generare tutti i dischi
+                for (let index = 0; index < data.length; index++) {
+                    var disco = data[index];
+                    //con handlebar genero le card
+                    handleTemplate(disco);
+                    //popolo la select
+                    if ($('option').val() != disco.author) {
+                        $('select').append('<option val ="'+ disco.author +'">' + disco.author + '</option>');
+                    }
                 }
+            },
+            'error': function() {
+                console.log('errore');
             }
-        },
-        'error': function() {
-            console.log('errore');
-        }
-    })
+        })
+    }
+    
     
     $('select').change(function(){
         $.ajax({

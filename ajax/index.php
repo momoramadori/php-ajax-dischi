@@ -20,11 +20,11 @@
         </form>
     </div>
 </header>
-    <main>
+    <main class='handlebars-compile'>
         <div class="container">       
         </div>
     </main>
-    <script src="../public/ajax-version/app.js"></script>
+    <script src="../public/app.js"></script>
     <script id="entry-template" type="text/x-handlebars-template">
         <div class="card">
             <div><img src="{{image}}" alt=""></div>

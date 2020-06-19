@@ -54,6 +54,17 @@ foreach ($dischi as  $disco) {
             ?>
         </div>
     </main>
-    <script src="../public/php-version/app.js"></script>
+    <script src="../public//app.js"></script>
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div class="card">
+            <div><img src="{{image}}" alt=""></div>
+            <div class='info'>
+                <h3>{{title}}</h3>
+                <p>{{author}}</p>
+                <p>{{genre}}</p>
+                <p>{{year}}</p>
+            </div>
+        </div>
+    </script>
 </body>
 </html>
